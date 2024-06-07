@@ -1,0 +1,33 @@
+1. Create Dockerfile
+
+// configuration cmd 
+
+FROM node:20
+WORKDIR /frontend 
+COPY ./package*.json ./  
+RUN npm install 
+COPY . . 
+
+CMD ["npm", "start"]
+
+2. building a images
+
+//image building cmd
+docker build -t react-image .
+
+
+3. build container
+
+//container cmd
+docker run --name react-container --rm react-image
+
+docker-ps //to ckeck running container
+docker stop react-container // to stop running 
+
+port-mapping
+docker run --name react-container
+
+sync
+docker run --name react-container --rm -p 300:300 -v cd%:/frontend react-image
+
+docker ex
